@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from selenium import webdriver
 
+from fixture.group import GroupHelper
 from fixture.session import SessionHelper
 
 
@@ -10,6 +11,7 @@ class Application:
         self.wd = webdriver.Firefox(executable_path="C:\\webdrivers\\geckodriver.exe")
         self.wd.implicitly_wait(60)
         self.session = SessionHelper(self)
+        self.group = GroupHelper(self)
 
     def open_home_page(self):
         wd = self.wd
