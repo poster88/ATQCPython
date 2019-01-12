@@ -5,12 +5,11 @@ class GroupHelper:
 
     def open_groups_page(self):
         wd = self.app.wd
-        wd.find_element_by_link_text("Адреса").click()
+        wd.find_element_by_link_text("Групи").click()
 
     def create(self, group):
         wd = self.app.wd
         self.open_groups_page()
-        wd.find_element_by_link_text("Групи").click()
         wd.find_element_by_name("new").click()
         wd.find_element_by_name("group_name").click()
         wd.find_element_by_name("group_name").clear()
@@ -27,4 +26,11 @@ class GroupHelper:
 
     def return_to_group_page(self):
         wd = self.app.wd
+        wd.find_element_by_link_text("group page").click()
+
+    def delete_first_group(self):
+        wd = self.app.wd
+        self.open_groups_page()
+        wd.find_element_by_name("selected[]").click()
+        wd.find_element_by_xpath("//div[@id='content']/form/input[5]").click()
         wd.find_element_by_link_text("group page").click()
